@@ -1,6 +1,6 @@
     package com.example.academiacx.models;
 
-    import com.example.academiacx.models.dto.UserDto;
+    import com.example.academiacx.models.dto.UserDTO;
     import com.example.academiacx.models.security.RoleModel;
     import jakarta.persistence.*;
 
@@ -29,15 +29,17 @@
         @ElementCollection
         private List<String> favoriteDirectors;
 
+
         public UserModel() {
         }
 
-        public UserModel(UserDto userDto) {
-            this.id = userDto.getId();
-            this.name = userDto.getName();
-            this.email = userDto.getEmail();
-            this.username = userDto.getUsername();
+        public UserModel(UserDTO userDTO) {
+            this.id = userDTO.getId();
+            this.name = userDTO.getName();
+            this.email = userDTO.getEmail();
+            this.username = userDTO.getUsername();
         }
+
 
         public Long getId() {
             return id;
@@ -75,6 +77,7 @@
             return username;
         }
 
+
         public void setUsername(String username) {
             this.username = username;
         }
@@ -85,8 +88,8 @@
             return favoritesMovies;
         }
 
-        public void setFavoritesMovies(List<String> favoritesMovies) {
-            this.favoritesMovies = favoritesMovies;
+        public List<String> getFavoriteMovies() {
+            return favoritesMovies;
         }
 
         public void addFavoriteMovieTitle(String movieTitle) {
